@@ -34,7 +34,6 @@ def init(worker_number):
 
 	if len(floating_ip_list) == 0:
 		new_ip = nc.floating_ips.create(getattr(nc.floating_ip_pools.list()[0],'name'))
-		print new_ip
 		floating_ip_list.append(getattr(new_ip, 'ip'))
 
 	floating_ip = floating_ip_list[0]
