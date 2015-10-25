@@ -9,7 +9,7 @@ import json
 from collections import Counter
 from cStringIO import StringIO
 
-cel = Celery('test_task', backend='amqp', broker='amqp://ma:ha@130.238.29.124:5672/maha')
+cel = Celery('test_task', backend='amqp', broker='amqp://ma:ha@130.238.29.169:5672/maha')
 
 #cel = Celery('test_task', backend='amqp', broker='amqp://')
 
