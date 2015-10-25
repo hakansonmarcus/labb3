@@ -1,0 +1,25 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+    - git
+    - python-pip
+    - python-swiftclient
+    - rabbitmq-server
+
+runcmd:
+    - pip install Flask
+    - git clone https://github.com/hakansonmarcus/labb3.git
+    - mv Labb3 home/ubuntu/Labb3
+    - chmod -R 777 home/ubuntu/Labb3
+    - cd home/ubuntu/Labb3/messaging
+    - pip install celery
+    - pip install flower
+    - sudo rabbitmqctl add_user ma ha
+    - sudo rabbitmqctl add_vhost maha
+    - sudo rabbitmqctl set_permissions -p maha ma ".*" ".*" ".*"
+    - sudo -H -u ubuntu bash -c "python runTasks.py &"
+    - sudo -H -u ubuntu bash -c "celery flower -A tasks &"
+
