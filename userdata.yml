@@ -14,7 +14,6 @@ runcmd:
     - git clone https://github.com/hakansonmarcus/labb3.git
     - mv Labb3 home/ubuntu/Labb3
     - chmod -R 777 home/ubuntu/Labb3
-    - cd home/ubuntu/Labb3/messaging
     - pip install celery
     - pip install flower
     - sudo rabbitmqctl add_user ma ha

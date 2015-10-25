@@ -18,7 +18,7 @@ def init(worker_number):
 	flavor = nc.flavors.find(name="m1.medium")
 	network = nc.networks.find(label="ACC-Course-net")
 	keypair = nc.keypairs.find(name="MarcusKey")
-	ud = open('userdata.yml', 'r')
+	ud = open('userdata2.yml', 'r')
 	nc.keypairs.list()
 
 	server = nc.servers.create(name = worker_name ,image = image.id,flavor = flavor.id,network = network.id,
