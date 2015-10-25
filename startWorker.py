@@ -13,7 +13,7 @@ nc = Client('2',**config)
 # Create instance
 def init(worker_number):
 	worker_name = "MH_Worker%i" %(worker_number)
-	import time 
+	import time
 	image = nc.images.find(name="Ubuntu Server 14.04 LTS (Trusty Tahr)")
 	flavor = nc.flavors.find(name="m1.medium")
 	network = nc.networks.find(label="ACC-Course-net")
@@ -22,7 +22,7 @@ def init(worker_number):
 	nc.keypairs.list()
 
 	server = nc.servers.create(name = worker_name ,image = image.id,flavor = flavor.id,network = network.id,
-	 key_name = keypair.name, userdata = ud)
+	key_name = keypair.name, userdata = ud)
 	time.sleep(5)
 
 	floating_ip_information_list = nc.floating_ips.list()
